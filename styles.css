@@ -4,3 +4,16 @@
   box-sizing: 0;
 }
 
+.box-container {
+  display: flex;
+  gap: 1em;
+  min-width: 100vw;
+}
+
+.box-container div {
+  padding: 1em;
+}
+
+.box-one {
+  display: flex;
+}
