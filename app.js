@@ -5,24 +5,26 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const yearEl = $("#year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* Mobile nav toggle */
-const navToggle = $(".nav__toggle");
-const navMenu = $("#nav-menu");
+/* Mobile nav toggle (animated) */
+const navToggle = document.querySelector(".nav__toggle");
+const navMenu = document.getElementById("nav-menu");
+
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
-    const open = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", String(!open));
-    navMenu.style.display = open ? "none" : "flex";
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!isOpen));
+    navMenu.classList.toggle("open", !isOpen);
   });
-  // Close nav on link click (mobile)
-  $$("#nav-menu a").forEach((a) =>
-    a.addEventListener("click", () => {
+
+  // Close nav when clicking a link (mobile)
+  document.querySelectorAll("#nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
       if (window.innerWidth < 960) {
-        navMenu.style.display = "none";
+        navMenu.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
       }
-    })
-  );
+    });
+  });
 }
 
 /* ===== Estimator ===== */
