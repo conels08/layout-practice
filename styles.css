@@ -244,6 +244,81 @@ input:focus, select:focus, textarea:focus { border-color: var(--brand) }
   }
 }
 
+/* --- Responsive Footer: stacked & polished for mobile --- */
+@media (max-width: 768px) {
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    padding: 1.8rem 1rem;
+  }
+
+  /* Brand centered and slightly smaller */
+  .brand--footer {
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+  .brand--footer svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Footer nav links centered and spaced nicely */
+  .footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  /* Legal text stacked with subtle contrast */
+  .footer__legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  /* Adjust padding between sections for breathing room */
+  .footer {
+    padding: 2rem 0 2.4rem;
+  }
+}
+
+/* --- Responsive Contact Section: stack columns on narrow screens --- */
+@media (max-width: 900px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.6rem;
+  }
+
+  .contact__aside {
+    /* order: -1; moves Service Area above or below depending on your preference */
+    width: 100%;
+  }
+
+  .contact__form {
+    width: 100%;
+  }
+
+  /* Tweak inner padding for smaller viewports */
+  .contact__aside,
+  .contact__form {
+    padding: 1rem;
+  }
+
+  /* Optional: soften borders and space */
+  .contact__aside {
+    border-radius: 12px;
+  }
+}
 
 
 
