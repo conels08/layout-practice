@@ -141,12 +141,31 @@ legend {
 
 /* About */
 .about { display:grid; gap: 1.2rem; grid-template-columns: 1.1fr .9fr; align-items:center }
-.about__image { height: 360px; border-radius: var(--radius); background:
-  linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.25)),
-  url('https://images.unsplash.com/photo-1523419409543-8c1a8c6e2f39?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+/* About image panel — bright, visible photo card */
+.about__image {
+  height: 360px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
+
+  /* Lighter overlay so it doesn't read as an empty box */
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.12)),
+    url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070')
+      center/cover no-repeat;
+
+  /* Subtle pop so the image feels intentional */
+  filter: saturate(1.05) brightness(1.1) contrast(1.05);
 }
-@media (max-width: 960px){ .about { grid-template-columns: 1fr } }
+
+/* Optional: shorter on small screens (keeps proportions tidy) */
+@media (max-width: 960px) {
+  .about__image {
+    height: 240px;
+  }
+
+  .about { grid-template-columns: 1fr }
+}
 
 /* Quotes */
 .quote { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem }
