@@ -149,6 +149,11 @@ input:focus, select:focus, textarea:focus { border-color: var(--brand) }
   text-decoration: underline;
 }
 
+.footer__signature {
+  width: 100%;
+  text-align: center;
+}
+
 /* --- Mobile Header + Nav with Premium Slide/Fade Animation --- */
 @media (max-width: 960px) {
   /* Header layout */
