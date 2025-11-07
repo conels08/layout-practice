@@ -163,7 +163,6 @@ legend {
   .about__image {
     height: 240px;
   }
-
   .about { grid-template-columns: 1fr }
 }
 
