@@ -39,6 +39,7 @@ body {
 .header { position: sticky; top: 0; z-index: 40; background: rgba(11,14,17,.75); backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid var(--border)}
 .header__inner { display:flex; align-items:center; justify-content: space-between; padding: .9rem 0 }
 .brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 700; letter-spacing: .2px; text-decoration: none; color: var(--text) }
+.brand .brand-name {font-size: 32px;}
 .nav { display:flex; gap: 1.2rem; align-items:center }
 .nav a { color: var(--text); text-decoration: none; opacity: .9 }
 .nav a:hover { color: var(--brand) }
