@@ -110,6 +110,35 @@ input:focus, select:focus, textarea:focus { border-color: var(--brand) }
 .estimate__breakdown { border-top: 1px dashed var(--border); padding-top: .8rem; color: var(--muted); font-size: .95rem }
 .disclaimer { color: var(--muted); font-size: .9rem }
 
+/* --- Estimator fieldset with rounded borders + floating legend badge --- */
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 14px;         /* matches your site's soft rounded look */
+  padding: 1.6rem 1.2rem 1.2rem;
+  margin: 1em 0 0;
+  position: relative;
+}
+
+/* Legend styled as a floating label badge */
+legend {
+  position: relative;
+  top: -0.9rem;                /* moves it up to “float” above the border */
+  left: 1rem;                  /* keeps spacing consistent */
+  padding: 0.2rem 0.8rem;
+  background: var(--panel);    /* matches the form background color */
+  border: 1px solid var(--border);
+  border-radius: 8px;          /* slightly rounded corners for the badge */
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* Optional: add a subtle shadow for contrast on dark backgrounds */
+legend {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+
 /* About */
 .about { display:grid; gap: 1.2rem; grid-template-columns: 1.1fr .9fr; align-items:center }
 .about__image { height: 360px; border-radius: var(--radius); background:
