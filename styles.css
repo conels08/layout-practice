@@ -149,6 +149,42 @@ input:focus, select:focus, textarea:focus { border-color: var(--brand) }
   text-decoration: underline;
 }
 
+/* --- Mobile Nav Dropdown Animation --- */
+
+/* Base hidden state for nav (mobile only) */
+@media (max-width: 960px) {
+  #nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(11, 14, 17, 0.97);
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.35s ease;
+  }
+
+  /* Links stacked vertically */
+  #nav-menu a {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* When nav is open */
+  #nav-menu.open {
+    max-height: 500px; /* plenty for full list */
+    opacity: 1;
+  }
+
+  /* Rotate toggle icon when open (optional flair) */
+  .nav__toggle[aria-expanded="true"] {
+    transform: rotate(90deg);
+    transition: transform 0.25s ease;
+  }
+}
+
+
 
 /* A11y helpers */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
