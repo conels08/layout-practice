@@ -320,6 +320,50 @@ input:focus, select:focus, textarea:focus { border-color: var(--brand) }
   }
 }
 
+/* --- Mobile: brand on top, toggle on right, nav below --- */
+@media (max-width: 960px) {
+  /* Force grid on mobile (override earlier flex) */
+  .header__inner {
+    display: grid !important;
+    grid-template-areas:
+      "brand toggle"
+      "nav   nav";
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.4rem 0.8rem;
+  }
+
+  /* Brand centered on the top row */
+  .header__inner .brand {
+    grid-area: brand;
+    justify-self: center;
+    /* neutralize earlier mobile flex rules */
+    flex: none;
+    text-align: center;
+  }
+
+  /* Toggle pinned to the right of the top row */
+  .nav__toggle {
+    grid-area: toggle;
+    justify-self: end;
+    order: initial;      /* neutralize earlier 'order:2' */
+    margin-left: 0;      /* neutralize earlier margin */
+    font-size: 1.4rem;
+  }
+
+  /* Dropdown nav spans full width under the brand */
+  #nav-menu {
+    grid-area: nav;
+    width: 100%;
+  }
+
+  /* Ensure nav is not hidden by earlier rules */
+  .nav {
+    display: flex !important;
+    flex-direction: column;
+  }
+}
+
 
 
 /* A11y helpers */
