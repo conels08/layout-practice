@@ -149,40 +149,101 @@ input:focus, select:focus, textarea:focus { border-color: var(--brand) }
   text-decoration: underline;
 }
 
-/* --- Mobile Nav Dropdown Animation --- */
-
-/* Base hidden state for nav (mobile only) */
+/* --- Mobile Header + Nav with Premium Slide/Fade Animation --- */
 @media (max-width: 960px) {
+  /* Header layout */
+  .header {
+    padding: 0.6rem 1rem;
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  /* Brand centered on top bar */
+  .brand {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Toggle on right */
+  .nav__toggle {
+    order: 2;
+    margin-left: auto;
+    font-size: 1.4rem;
+  }
+
+  /* Dropdown container: slide + fade */
   #nav-menu {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     background: rgba(11, 14, 17, 0.97);
     border-top: 1px solid var(--border);
     overflow: hidden;
+
+    /* collapsed state */
     max-height: 0;
     opacity: 0;
-    transition: all 0.35s ease;
+    transform: translateY(-8px);
+    transition:
+      max-height 0.45s ease,
+      opacity 0.35s ease,
+      transform 0.35s ease;
   }
 
-  /* Links stacked vertically */
+  /* Open state */
+  #nav-menu.open {
+    max-height: 520px; /* enough room for all links */
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Links stacked & centered */
   #nav-menu a {
     padding: 0.9rem 1rem;
     border-bottom: 1px solid var(--border);
+    text-align: center;
+    text-decoration: none;
+
+    /* link fade/slide-in (staggered) */
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease,
+      color 0.2s ease;
   }
 
-  /* When nav is open */
-  #nav-menu.open {
-    max-height: 500px; /* plenty for full list */
-    opacity: 1;
-  }
+  /* Stagger the link animation */
+  #nav-menu.open a { opacity: 1; transform: translateY(0) }
+  #nav-menu.open a:nth-child(1) { transition-delay: 0.05s }
+  #nav-menu.open a:nth-child(2) { transition-delay: 0.10s }
+  #nav-menu.open a:nth-child(3) { transition-delay: 0.15s }
+  #nav-menu.open a:nth-child(4) { transition-delay: 0.20s }
+  #nav-menu.open a:nth-child(5) { transition-delay: 0.25s }
+  #nav-menu.open a:nth-child(6) { transition-delay: 0.30s }
 
-  /* Rotate toggle icon when open (optional flair) */
+  /* Optional: rotate toggle slightly when open */
   .nav__toggle[aria-expanded="true"] {
     transform: rotate(90deg);
     transition: transform 0.25s ease;
   }
 }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #nav-menu,
+  #nav-menu a {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 
 
 
